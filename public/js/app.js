@@ -16,21 +16,19 @@ weatherForm.addEventListener("submit", (e) => {
   messageOne.textContent = "Loading...";
   messageTwo.textContent = "";
 
-  fetch("http://localhost:3000/weather?address=" + location).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.error) {
-          messageOne.textContent = data.error;
-        } else {
-          console.log(data);
-          messageOne.textContent = data.location;
-          messageTwo.textContent =
-            "Current temperature is " +
-            data.forecast.temperature +
-            " and air humidity is " +
-            data.forecast.humidity;
-        }
-      });
-    }
-  );
+  fetch("/weather?address=" + location).then((response) => {
+    response.json().then((data) => {
+      if (data.error) {
+        messageOne.textContent = data.error;
+      } else {
+        console.log(data);
+        messageOne.textContent = data.location;
+        messageTwo.textContent =
+          "Current temperature is " +
+          data.forecast.temperature +
+          " and air humidity is " +
+          data.forecast.humidity;
+      }
+    });
+  });
 });
