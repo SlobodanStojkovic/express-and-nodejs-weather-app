@@ -7,4 +7,4 @@
 2. Run npm install from terminal
 3. Run node src/app.js 
 
-Wait 30 seconds for server to open automaticaly or go to http://localhost:3000/ and there you can type inside input city for which you want to see weather details.
+Wait 30 seconds for server, or if it doesn't open, go to http://localhost:3000/ and there you can type inside input city for which you want to see weather details.
