@@ -15,7 +15,11 @@ const forecast = (latitude, longitude, callback) => {
     } else {
       callback(undefined, {
         temperature: response.body.current.temperature + "° Celsius",
+        feelslike: response.body.current.feelslike + "° Celsius",
         humidity: response.body.current.humidity + "%",
+        airPresure: response.body.current.pressure + " millibars",
+        uvIndex: response.body.current.uv_index,
+        observationTime: response.body.current.observation_time,
       });
     }
   });

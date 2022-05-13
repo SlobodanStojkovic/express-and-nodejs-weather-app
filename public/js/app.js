@@ -18,16 +18,25 @@ weatherForm.addEventListener("submit", (e) => {
 
   fetch("/weather?address=" + location).then((response) => {
     response.json().then((data) => {
+      console.log(data);
       if (data.error) {
         messageOne.textContent = data.error;
       } else {
         console.log(data);
         messageOne.textContent = data.location;
         messageTwo.textContent =
-          "Current temperature is " +
+          "Information from " +
+          data.forecast.observationTime +
+          " is: Current temperature is " +
           data.forecast.temperature +
           " and air humidity is " +
-          data.forecast.humidity;
+          data.forecast.humidity +
+          ". Air pressure is " +
+          data.forecast.airPresure +
+          ". It feels like it is " +
+          data.forecast.feelslike +
+          ". The UV index is " +
+          data.forecast.uvIndex;
       }
     });
   });
